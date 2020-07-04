@@ -1,0 +1,104 @@
+---
+title: "Using the fars package"
+author: "Lucas Zamora"
+date: "2020-07-04"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fars)
+```
+
+
+# Package Description
+
+`fars` package reads and plots Fatality Analysis Reporting System (FARS) data 
+from the [National Highway Traffic Safety 
+Administration](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars).
+
+
+
+## Functions
+
+Five functions are available; all exported for the user:
+
+Function                 | Description
+-------------------------|-------------------------------------------
+`make_filename()`        | Generate FARS filename for a given year
+`fars_read()`            | Read a FARS csv file into a tibble
+`fars_read_years()`      | Read FARS data for a vector of years (helper function used by `fars_summarize_years`)
+`fars_summarize_years()` | Summarise FARS observation counts by year and month
+`fars_map_state()`       | Draw a geographical map of accident sites for a specific US state and year
+
+
+## Load Packages
+
+```{r}
+library(fars)
+library(maps)
+```
+
+
+
+## Included data
+
+Data files included within the package are:
+
+```{r}
+list.files(system.file("extdata", package = "fars"))
+```
+
+
+
+### Function `make_filename`
+
+This function returns file name and path to the data files:
+
+```{r}
+yr <- 2015
+make_filename(yr)
+```
+
+### Function `fars_read_years`
+
+Ancillary function used by `fars_summarize_years`
+
+```{r}
+setwd(system.file("extdata", package = "fars"))
+fars_read_years(2013)
+```
+
+
+### Function `fars_summarize_years`
+
+This function summarizes yearly accidents data, by month.
+
+```{r}
+setwd(system.file("extdata", package = "fars"))
+plot(fars_summarize_years(2015))
+fars_summarize_years(c(2015, 2014))
+```
+
+### Function `fars_map_state`
+
+The function displays a state map plot including accidents location
+by year
+
+```{r}
+setwd(system.file("extdata", package = "fars"))
+state_num <- 49 # Utah
+yr <- 2014
+fars_map_state(state_num, yr)
+```
+

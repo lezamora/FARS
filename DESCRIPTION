@@ -1,0 +1,24 @@
+Package: fars
+Title: Package for handle FARS dataset
+Version: 0.0.0.1
+Authors@R: 
+    person(given = "Lucas",
+           family = "Zamora",
+           role = c("aut", "cre"),
+           email = "lucas.e.zamora@gmail.com")
+Description: This package allows you to analyze the FARS dataset in a friendly way.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+   dplyr,
+   maps,
+   readr,
+   tidyr,
+   magrittr
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
