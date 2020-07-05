@@ -61,7 +61,7 @@ make_filename(yr)
 
 Ancillary function used by `fars_summarize_years`
 
-```{r}
+```{r, eval=FALSE}
 fars_read_years(2013)
 ```
 
@@ -70,7 +70,7 @@ fars_read_years(2013)
 
 This function summarizes yearly accidents data, by month.
 
-```{r}
+```{r, eval=FALSE}
 plot(fars_summarize_years(2015))
 fars_summarize_years(c(2015, 2014))
 ```
@@ -80,7 +80,7 @@ fars_summarize_years(c(2015, 2014))
 The function displays a state map plot including accidents location
 by year
 
-```{r}
+```{r, eval=FALSE}
 state_num <- 49 # Utah
 yr <- 2014
 fars_map_state(state_num, yr)
