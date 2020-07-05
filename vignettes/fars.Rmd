@@ -48,7 +48,6 @@ list.files(system.file("extdata", package = "fars"))
 ```
 
 
-
 ### Function `make_filename`
 
 This function returns file name and path to the data files:
@@ -63,7 +62,6 @@ make_filename(yr)
 Ancillary function used by `fars_summarize_years`
 
 ```{r}
-setwd(system.file("extdata", package = "fars"))
 fars_read_years(2013)
 ```
 
@@ -73,7 +71,6 @@ fars_read_years(2013)
 This function summarizes yearly accidents data, by month.
 
 ```{r}
-setwd(system.file("extdata", package = "fars"))
 plot(fars_summarize_years(2015))
 fars_summarize_years(c(2015, 2014))
 ```
@@ -84,9 +81,7 @@ The function displays a state map plot including accidents location
 by year
 
 ```{r}
-setwd(system.file("extdata", package = "fars"))
 state_num <- 49 # Utah
 yr <- 2014
 fars_map_state(state_num, yr)
 ```
-
